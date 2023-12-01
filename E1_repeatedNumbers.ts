@@ -1,14 +1,11 @@
 function findFirstRepeated(gifts: number []) {
-  let uniqueNumbers: number[] = []
-  for (let i = 0; i < gifts.length; i++) {
-      if (!uniqueNumbers.includes(gifts[i])) {
-        uniqueNumbers = [...uniqueNumbers, gifts[i]]
-      }else{
-          return gifts[i];
-      } 
-  }
-  return -1;
+    const uniqueNumber = gifts.filter(num => gifts.indexOf(num) !== gifts.lastIndexOf(num))
+    if (uniqueNumber.length == 0) {
+        return -1
+    }
+    return uniqueNumber[2] || uniqueNumber[0]
 }
 
-console.log(findFirstRepeated([1,2,3,4,6,8]));
+console.log(findFirstRepeated([1,2,3,4,6,8,6]));
+console.log(findFirstRepeated([0,2,3,0,6,8,0]));
 console.log(findFirstRepeated([1,2,3,4,2,3]));
