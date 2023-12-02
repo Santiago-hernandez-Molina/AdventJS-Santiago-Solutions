@@ -1,3 +1,17 @@
+function findFirstRepeatedBest(gifts) {
+    return [...gifts.filter(
+        (num, i) => (gifts.indexOf(num)!== i)
+    ), -1][0]
+}
+
+function findFirstRepeatedFE(gifts: number[]) {
+    for (const [num, i] of gifts.entries()) {
+        if (gifts.indexOf(num)!== i){
+            return num
+        }
+    }
+    return -1;
+}
 function findFirstRepeated1(gifts: number []): number {
     let lastIndexOf: number = gifts.length;
     let uniqueNumber = -1;
@@ -15,13 +29,14 @@ function findFirstRepeated1(gifts: number []): number {
     }
     return uniqueNumber 
 }
-function findFirstRepeated2(gifts: number[]) {
-    const uniques = gifts.filter(
+
+function findFirstRepeated(gifts: number[]) {
+    const uniques = gifts.reverse().filter(
         num => (gifts.indexOf(num)!== gifts.lastIndexOf(num))
     )
     uniques.unshift(-1)
     uniques.push(-1)
-    let i = (uniques.length / 2)
+    let i = Math.floor(uniques.length / 2)
     return uniques[i];
 }
 function findFirstRepeated4(gifts: number[]) {
@@ -39,7 +54,7 @@ function findFirstRepeated3(gifts: number[]) {
 
     return -1;
 }
-function findFirstRepeated(gifts: number[]) {
+function findFirstRepeatedT(gifts: number[]) {
     const uniques = gifts.filter(
         (num, i) => {
             const result = i != gifts.lastIndexOf(num)
@@ -54,6 +69,7 @@ function findFirstRepeated(gifts: number[]) {
 }
 
 console.log(findFirstRepeated([1,2,3,4,6,8,6]));
-console.log(findFirstRepeated([0,2,3,0,6,8,0]));
+console.log(findFirstRepeated([0,2,4,9,8,2,2,0,0,0,0,6,8,0,4]));
+console.log(findFirstRepeated([0,2,3,4,3,2,0]));
 console.log(findFirstRepeated([1,2,3,4,2,3]));
 console.log(findFirstRepeated([2, 1, 3, 5, 3, 2]));
