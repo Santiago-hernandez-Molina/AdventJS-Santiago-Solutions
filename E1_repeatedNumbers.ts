@@ -1,6 +1,5 @@
 function findFirstRepeatedNew(gifts) {
-    gifts = [...gifts, -1, -1]
-    return gifts.find(
+    return [...gifts, -1, -1].find(
         (num, i) => (gifts.indexOf(num)!== i)
     )
 }
