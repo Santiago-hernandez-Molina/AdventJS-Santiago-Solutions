@@ -20,4 +20,4 @@ function manufacture2(gifts: string[], materials: string) {
     return words
 }
 
-console.log(manufacture2(["ose"],"sapo"))
+console.log(manufacture2(["esa"],"sapo"))
